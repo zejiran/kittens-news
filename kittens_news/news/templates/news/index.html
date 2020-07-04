@@ -5,6 +5,17 @@
     <title>Kittens News</title>
 </head>
 <body>
-    <h3>Coming Soon</h3>
+    <h2>Kittens news</h2>
+
+    {% for date, group in news.items %}
+    <h4>{{ date }}</h4>
+        <ul>
+            {% for post in group %}
+            <li><a target="_blank" href="/news/{{ post.link }}/">{{ post.title }}</a></li>
+            {% endfor %}
+        </ul>
+    {% endfor %}
+
+    <a target="_blank" href="/news/create/">Create a new post</a>
 </body>
 </html>

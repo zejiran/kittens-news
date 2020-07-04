@@ -1,12 +1,16 @@
 from django.http import Http404
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views import View
-from .models import news, links
+from .models import news, links, group_dates
+
+
+def redirect_home(request):
+    return redirect('/news/')
 
 
 class HomeView(View):
     def get(self, request):
-        return render(request, 'news/index.html')
+        return render(request, 'news/index.html', context={'news': group_dates})
 
 
 class NewsView(View):
