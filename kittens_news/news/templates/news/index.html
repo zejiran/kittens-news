@@ -7,6 +7,11 @@
 <body>
     <h2>Kittens news</h2>
 
+    <form value="/news/" method="get">
+        <label for="search">Search news:</label>
+        <input id="search" type="text" name="q">
+    </form>
+
     {% for date, group in news.items %}
     <h4>{{ date }}</h4>
         <ul>

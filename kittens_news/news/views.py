@@ -1,7 +1,7 @@
 from django.http import Http404
 from django.shortcuts import render, redirect
 from django.views import View
-from .models import read_news, order_recent_news, update_json
+from .models import read_news, order_recent_news, update_json, filter_news
 
 news, links = read_news()
 
@@ -13,7 +13,12 @@ def redirect_home(request):
 class HomeView(View):
     def get(self, request):
         group_dates = order_recent_news(news)
-        return render(request, 'news/index.html', context={'news': group_dates})
+        query = request.GET.get('q')
+        # Query is None when regular access or not using search bar.
+        if query is None:
+            return render(request, 'news/index.html', context={'news': group_dates})
+        else:
+            return render(request, 'news/index.html', context={'news': filter_news(group_dates, query)})
 
 
 class NewsView(View):

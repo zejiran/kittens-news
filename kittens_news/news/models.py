@@ -20,7 +20,7 @@ def read_news():
     return news, links
 
 
-# Fresh news on top
+# Fresh news on top.
 def order_recent_news(news):
     # Dictionary for grouping news by date.
     group_dates = {}
@@ -72,3 +72,15 @@ def update_json(title, text, links, news):
             })
             json_news_str = json.dumps(news, indent=4)
             json_file.write(json_news_str)
+
+
+def filter_news(group_dates, query):
+    filtered_news = {}
+    for date in group_dates:
+        for post in group_dates[date]:
+            if query.lower() in post['title'].lower():
+                if date not in filtered_news:
+                    filtered_news[date] = [post]
+                else:
+                    filtered_news[date].append(post)
+    return filtered_news
