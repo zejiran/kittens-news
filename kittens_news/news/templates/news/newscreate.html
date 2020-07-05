@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kittens News</title>
+</head>
+<body>
+    <form action="/news/create/" method="post">{% csrf_token %}
+        <label for="i_title">Title:</label>
+        <input type="text" id="i_title" name="title">
+        <br><br>
+        <label for="i_text">Text:</label>
+        <input type="text" id="i_text" name="text" size="40">
+        <br><br>
+        <button type="submit">Create post</button>
+        <br><br>
+    </form>
+    <a target="_blank" href="/news/">Homepage</a>
+</body>
+</html>

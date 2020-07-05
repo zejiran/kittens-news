@@ -15,11 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from news.views import HomeView, NewsView, redirect_home
+from news.views import HomeView, NewsView, redirect_home, NewsCreateView
 from django.shortcuts import redirect
 
 urlpatterns = [
     path('', redirect_home),
     path('news/', HomeView.as_view()),
+    path('news/create/', NewsCreateView.as_view()),
     path('news/<link>/', NewsView.as_view())
 ]
