@@ -23,3 +23,21 @@ Go to http://127.0.0.1:8000/ or http://localhost:8000/
 - Store actual time and date of posts created using datetime Python module, format 'AAAA-MM-DD HH:MM:SS'.
 - JSON file is updated when a new post is created.
 - Search bar form that sends GET requests to homepage for query specific words on news titles.
+
+## Screenshots
+
+### 1. Homepage
+
+<img src="https://i.ibb.co/x89kfYF/c1.png" alt="c1">
+
+### 2. Create post
+
+<img src="https://i.ibb.co/rxWWWYx/c2.png" alt="c2">
+
+### 3. Make query
+
+<img src="https://i.ibb.co/TvqFJHh/c3.png" alt="c3">
+  
+### 4. News
+
+<img src="https://i.ibb.co/SPdXpBv/c4.png" alt="c4">
